@@ -27,8 +27,9 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         super.addResourceHandlers(registry); //To change body of generated methods, choose Tools | Templates.
-        registry.addResourceHandler("/webjars/**")
-          .addResourceLocations("/webjars/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+        
     }
     @Bean
     public ViewResolver viewResolver(){

@@ -5,105 +5,51 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<s:url var="url_logo_img" value="/static/images/logo.png"/>
+<s:url var="url_css" value="/static/css/style.css"/>
+
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
               rel="stylesheet">
         <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <style>
-
-            /* Remove the navbar's default margin-bottom and rounded borders */ 
-            .navbar {
-                margin-bottom: 0;
-                border-radius: 0;
-            }
-
-            /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-            .row.content {height: 450px}
-
-            /* Set gray background color and 100% height */
-            .sidenav {
-                padding-top: 20px;
-                background-color: #f1f1f1;
-                height: 100%;
-            }
-
-            /* Set black background color, white text and some padding */
-            footer {
-                background-color: #555;
-                color: white;
-                padding: 15px;
-            }
-
-            /* On small screens, set height to 'auto' for sidenav and grid */
-            @media screen and (max-width: 767px) {
-                .sidenav {
-                    height: auto;
-                    padding: 15px;
-                }
-                .row.content {height:auto;} 
-            }
-
-            .login-form {
-                width: 340px;
-                margin: 50px auto;
-            }
-            .login-form form {
-                margin-bottom: 15px;
-                background: #f7f7f7;
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                padding: 30px;
-            }
-            .login-form h2 {
-                margin: 0 0 15px;
-            }
-            .form-control, .btn {
-                min-height: 38px;
-                border-radius: 2px;
-            }
-            .btn {        
-                font-size: 15px;
-                font-weight: bold;
-            }
-
-        </style>
-        <title>JSP Page</title>
+        <script src="/webjars/jquery/1.9.1/jquery.min.js"></script>
+        <link href="${url_css}" rel="stylesheet" type="text/css">
+        <title>Login</title>
     </head>
     <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                
+                <img src="${url_logo_img}" alt="logo" style="width:40px;">
+            </a>
+            <a class="navbar-brand" href="#">A2J Contact</a>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="container-fluid text-center">    
 
             <div class="login-form">
-                <form action="/examples/actions/confirmation.php" method="post">
-                    <h2 class="text-center">Log in</h2>       
+                <form action="#" method="post">
+                    <h2 class="text-center">Log in</h2>   
+
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Username" required="required">
                     </div>
@@ -111,6 +57,7 @@
                         <input type="password" class="form-control" placeholder="Password" required="required">
                     </div>
                     <div class="form-group">
+
                         <button type="submit" class="btn btn-primary btn-block">Log in</button>
                     </div>
                     <div class="clearfix">
@@ -122,9 +69,17 @@
             </div>
         </div>
 
-        <footer class="container-fluid text-center">
-            <p>Footer Text</p>
+        <!-- Footer -->
+        <footer class="page-footer font-small bg-dark ">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                <a href="#"> a2j.com</a>
+            </div>
+            <!-- Copyright -->
+
         </footer>
+        <!-- Footer -->
 
 
     </body>
