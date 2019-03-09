@@ -39,6 +39,13 @@
                     <c:if test="${err!=null}">
                         <p class="error">${err}</p>
                     </c:if>
+                        
+                    <c:if test="${param.action eq 'logout'}">
+                        <p class="success">Logout Successfully</p>
+                    </c:if>
+                        
+                        
+                        
 
                     <div class="form-group">
                         <f:input type="text" path="loginName" class="form-control" placeholder="Username" required="required"/>

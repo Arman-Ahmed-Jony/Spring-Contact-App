@@ -4,6 +4,7 @@ import com.a2j.capp.command.LoginCommand;
 import com.a2j.capp.domain.User;
 import com.a2j.capp.exception.UserBlockedException;
 import com.a2j.capp.service.UserService;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleLogin(@ModelAttribute("command") LoginCommand cmd, Model m) {
+    public String handleLogin(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
         try {
             User loggedInUser = userService.login(cmd.getLoginName(), cmd.getPassword());
             if (loggedInUser == null) {
@@ -37,10 +38,10 @@ public class UserController {
                 return "index";
             } else {
                 if (loggedInUser.getRole().equals(UserService.ROLE_ADMIN)) {
-                    //TODO: add user detail in session (assign sesion to logged in user)
+                    addUserInSession(loggedInUser, session);
                     return "redirect:admin/dashboard";
                 } else if (loggedInUser.getRole().equals(UserService.ROLE_USER)) {
-                    //TODO: add user detail in session (assign sesion to logged in user)
+                    addUserInSession(loggedInUser, session);
                     return "redirect:user/dashboard";
                 } else {
                     m.addAttribute("err", "No such user role");
@@ -54,6 +55,13 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/logout")
+    public String userDashBoard(HttpSession session) {
+        session.invalidate();
+        return "redirect:index?action=logout";     //it's a JSP page. and is resolved by view resolver
+        //JSP    /WEB-INF/view/index.jsp
+    }
+    
     @RequestMapping(value = "/user/dashboard")
     public String userDashBoard() {
         return "user_dashboard";     //it's a JSP page. and is resolved by view resolver
@@ -64,6 +72,13 @@ public class UserController {
     public String adminDashBoard() {
         return "admin_dashboard";     //it's a JSP page. and is resolved by view resolver
         //JSP    /WEB-INF/view/index.jsp
+    }
+
+    private void addUserInSession(User user, HttpSession session) {
+        session.setAttribute("user", user);
+        session.setAttribute("userId", user.getUserId());
+        session.setAttribute("role", user.getRole());
+
     }
 
 }
