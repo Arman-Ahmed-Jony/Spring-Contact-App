@@ -29,11 +29,11 @@ public class ContactDAOImpl extends BaseDAO implements ContactDAO{
                 + "VALUES (:userId,:name,:phone,:email,:address,:remark)";
         Map n=new HashMap();
         n.put("userId", contact.getUserId());
-        n.put("name", contact.getUserId());
-        n.put("phone", contact.getUserId());
-        n.put("email", contact.getUserId());
-        n.put("address", contact.getUserId());
-        n.put("remark", contact.getUserId());
+        n.put("name", contact.getName());
+        n.put("phone", contact.getPhone());
+        n.put("email", contact.getEmail());
+        n.put("address", contact.getAddress());
+        n.put("remark", contact.getRemark());
         
         SqlParameterSource parameterSource=new MapSqlParameterSource(n);
         KeyHolder keyHolder=new GeneratedKeyHolder();
@@ -49,11 +49,11 @@ public class ContactDAOImpl extends BaseDAO implements ContactDAO{
                 
         Map n=new HashMap();
         n.put("userId", contact.getUserId());
-        n.put("name", contact.getUserId());
-        n.put("phone", contact.getUserId());
-        n.put("email", contact.getUserId());
-        n.put("address", contact.getUserId());
-        n.put("remark", contact.getUserId());
+        n.put("name", contact.getName());
+        n.put("phone", contact.getPhone());
+        n.put("email", contact.getEmail());
+        n.put("address", contact.getAddress());
+        n.put("remark", contact.getRemark());
         
         getNamedParameterJdbcTemplate().update(sql, n);
     }

@@ -1,11 +1,13 @@
 package com.a2j.capp.controller;
 
 import com.a2j.capp.command.LoginCommand;
+import com.a2j.capp.command.UserCommand;
 import com.a2j.capp.domain.User;
 import com.a2j.capp.exception.UserBlockedException;
 import com.a2j.capp.service.UserService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +24,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"/index", "/"})
+    @RequestMapping(value = {"/index", "/"})    //browser URL /index or root
     public String Index(Model m) {
         m.addAttribute("command", new LoginCommand());
         return "index";     //it's a JSP page. and is resolved by view resolver
@@ -61,7 +63,7 @@ public class UserController {
         return "redirect:index?action=logout";     //it's a JSP page. and is resolved by view resolver
         //JSP    /WEB-INF/view/index.jsp
     }
-    
+
     @RequestMapping(value = "/user/dashboard")
     public String userDashBoard() {
         return "user_dashboard";     //it's a JSP page. and is resolved by view resolver
@@ -74,6 +76,29 @@ public class UserController {
         //JSP    /WEB-INF/view/index.jsp
     }
 
+    @RequestMapping(value = "/registration_form")
+    public String registrationForm(Model m) {
+        m.addAttribute("command", new UserCommand());
+        return "reg_form";
+    }
+    
+
+    @RequestMapping(value = "/register")
+    public String registerUser(@ModelAttribute("command") UserCommand command, Model m) {
+        try {
+            User user = command.getUser();
+            user.setRole(UserService.ROLE_USER);
+            user.setLoginStatus(UserService.LOGIN_STATUS_ACTIVE);
+            
+            userService.register(user);
+            
+            return "redirect:index?action=reg";
+        } catch (DuplicateKeyException dke) {
+            m.addAttribute("err", "User name is already taken. Select another name");
+            return "reg_form";  //jsp page
+        }
+    }
+    
     private void addUserInSession(User user, HttpSession session) {
         session.setAttribute("user", user);
         session.setAttribute("userId", user.getUserId());

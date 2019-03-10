@@ -1,9 +1,3 @@
-<%-- 
-    Document   : hello
-    Created on : Feb 27, 2019, 12:25:17 PM
-    Author     : Arman
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
@@ -21,7 +15,7 @@
         <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="/webjars/jquery/1.9.1/jquery.min.js"></script>
         <link href="${url_css}" rel="stylesheet" type="text/css">
-        <title>Login</title>
+        <title>Contact form</title>
     </head>
     <body>
 
@@ -32,43 +26,39 @@
         <div class="container-fluid text-center">    
 
             <div class="login-form">
-                <s:url var="url_login" value="/login"/>
-                <f:form action="${url_login}" modelAttribute="command"> <!--By default the method is POST request-->
-                    <h2 class="text-center">User Login</h2>   
+                <s:url var="url_contact_save" value="/user/save_contact"/>
+                <f:form action="${url_contact_save}" modelAttribute="command">
+                    <h2 class="text-center">Contact Form</h2>   
 
                     <c:if test="${err!=null}">
                         <p class="error">${err}</p>
                     </c:if>
 
-                    <c:if test="${param.action eq 'logout'}">
-                        <p class="success">Logout Successful</p>
-                    </c:if>
-                        
-                    <c:if test="${param.action eq 'reg'}">
-                        <p class="success">Registration Successful</p>
-                    </c:if>
-
-
-
-
                     <div class="form-group">
-                        <f:input type="text" path="loginName" class="form-control" placeholder="Username" required="required"/>
+                        <f:input type="text" path="contact.name" class="form-control" placeholder="Full Name" required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <f:input type="password" path="password" class="form-control" placeholder="Password" required="required"/>
+                        <f:input type="text" path="contact.phone" class="form-control" placeholder="Phone" required="required"/>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                        <f:input type="email" path="contact.email" class="form-control" placeholder="Email" required="required"/>
                     </div>
 
-                    <div class="clearfix">
-                        <label class="pull-left checkbox-inline"><input type="checkbox">Remember me</label>
-                        <a href="#" class="pull-right">Forgot Password?</a>
-                    </div> 
-                    <s:url var="url_reg_form" value="/registration_form"/>
-                    <p class="text-center"><a href="${url_reg_form}">Create an Account</a></p>
+                    <div class="form-group">
+                        <f:textarea type="text" path="contact.address" class="form-control" placeholder="Address" required="required"/>
+                    </div>
+
+
+                    <div class="form-group">
+                        <f:textarea type="text" path="contact.remark" class="form-control" placeholder="Remark" required="required"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Save</button>
+                    </div>
+
                 </f:form>
 
             </div>
