@@ -16,13 +16,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @author Arman
  */
 public class UserFindUserRecord {
-    public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
-        UserDAO userDAO=ctx.getBean(UserDAO.class);
-        //TODO: the user details will be taken from User-Reg-Form
-        User u=userDAO.findById(2);
-        System.out.println(u.getName());
-        System.out.println(u.getAddress());
-        
-    }
+	public static void main(String[] args) {
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
+		UserDAO userDAO = ctx.getBean(UserDAO.class);
+		// TODO: the user details will be taken from User-Reg-Form
+		User u = userDAO.findById(2);
+		System.out.println(u.getName());
+		System.out.println(u.getAddress());
+
+	}
 }

@@ -33,10 +33,12 @@ public class ContactController {
 
     @RequestMapping(value = "/user/save_contact")
     public String saveContact(@ModelAttribute("command") ContactCommand cmd, Model m, HttpSession session) {
-        //[NOTE: ModelAttribute is used to access or recieve command]
+        // [NOTE: ModelAttribute is used to access or recieve command]
 
         try {
-            cmd.getContact().setUserId((Integer) session.getAttribute("userId"));// as userId is a forign key. and userId is saved in HttpSession Scope.
+            cmd.getContact().setUserId((Integer) session.getAttribute("userId"));// as userId is a forign key. and
+            // userId is saved in HttpSession
+            // Scope.
             service.save(cmd.getContact());
             return "redirect:contact_list?action=save";
 
@@ -49,8 +51,8 @@ public class ContactController {
     }
 
     @RequestMapping(value = "/user/contact_list")
-    public String contactList(Model m) {
-        //TODO
+    public String contactList(Model m, HttpSession session) {
+        m.addAttribute("contactList", service.findUserContact((Integer)session.getAttribute("userId")));
         return "contact_list";
 
     }

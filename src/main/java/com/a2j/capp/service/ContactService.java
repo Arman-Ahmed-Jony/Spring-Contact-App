@@ -15,30 +15,29 @@ import java.util.List;
  */
 public interface ContactService {
 
-    public void save(Contact contact);
+	public void save(Contact contact);
 
-    public void update(Contact contact);
+	public void update(Contact contact);
 
-    public void delete(Integer contactId);
+	public void delete(Integer contactId);
 
-    public void delete(Integer[] contactId);
+	public void delete(Integer[] contactId);
 
-    /**
-     * this method returns all User Contact (user who is logged in)
-     *
-     * @param userId
-     * @return
-     */
-    public List<Contact> findUserContact(Integer userId);
+	/**
+	 * this method returns all User Contact (user who is logged in)
+	 *
+	 * @param userId
+	 * @return
+	 */
+	public List<Contact> findUserContact(Integer userId);
 
-    /**
-     * this method search contact for user(userId) based on given free text
-     * criteria
-     *
-     * @param userId
-     * @param text criteria used to search free text criteria
-     * @return
-     */
-    public List<Contact> findUserContact(Integer userId, String text);
+	/**
+	 * this method search contact for user(userId) based on given free text criteria
+	 *
+	 * @param userId
+	 * @param text   criteria used to search free text criteria
+	 * @return
+	 */
+	public List<Contact> findUserContact(Integer userId, String text);
 
 }

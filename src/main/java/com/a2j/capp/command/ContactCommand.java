@@ -13,16 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Arman
  */
 public class ContactCommand {
-    @Autowired
-    private Contact contact;
+	@Autowired
+	private Contact contact;
 
-    public Contact getContact() {
-        return contact;
-    }
+	public Contact getContact() {
+		return contact;
+	}
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-    
-    
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
 }

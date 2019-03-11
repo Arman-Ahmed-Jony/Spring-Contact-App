@@ -11,78 +11,77 @@ package com.a2j.capp.domain;
  */
 public class Contact {
 
-    private Integer contactId;
-    private Integer userId;
-    private String name;
-    private String phone;
-    private String email;
-    private String address;
-    private String remark;
+	private Integer contactId;
+	private Integer userId;
+	private String name;
+	private String phone;
+	private String email;
+	private String address;
+	private String remark;
 
-    public Contact() {
-    }
+	public Contact() {
+	}
 
-    public Integer getContactId() {
-        return contactId;
-    }
+	public Integer getContactId() {
+		return contactId;
+	}
 
-    public void setContactId(Integer contactId) {
-        this.contactId = contactId;
-    }
+	public void setContactId(Integer contactId) {
+		this.contactId = contactId;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
-    @Override
-    public String toString() {
-        return "Contact{" + "contactId=" + contactId + ", userId=" + userId + ", name=" + name + ", phone=" + phone + ", email=" + email + ", address=" + address + ", remark=" + remark + '}';
-    }
+	@Override
+	public String toString() {
+		return "Contact{" + "contactId=" + contactId + ", userId=" + userId + ", name=" + name + ", phone=" + phone
+				+ ", email=" + email + ", address=" + address + ", remark=" + remark + '}';
+	}
 
-    
-    
 }

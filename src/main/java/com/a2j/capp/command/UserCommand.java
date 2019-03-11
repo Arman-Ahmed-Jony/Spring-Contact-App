@@ -12,17 +12,14 @@ import com.a2j.capp.domain.User;
  * @author Arman
  */
 public class UserCommand {
-    private User user;
+	private User user;
 
-    public User getUser() {
-        return user;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-    
-    
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    
 }

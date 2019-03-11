@@ -11,19 +11,17 @@ package com.a2j.capp.exception;
  */
 public class UserBlockedException extends Exception {
 
-    /**
-     * Creates User object without error description
-     */
-    public UserBlockedException() {
-    }
+	/**
+	 * Creates User object without error description
+	 */
+	public UserBlockedException() {
+	}
 
-    
-    /**
-     * Creates User object with error description
-     */
-    public UserBlockedException(String message) {
-        super(message);
-    }
-    
-    
+	/**
+	 * Creates User object with error description
+	 */
+	public UserBlockedException(String message) {
+		super(message);
+	}
+
 }

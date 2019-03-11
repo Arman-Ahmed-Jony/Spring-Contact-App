@@ -16,19 +16,19 @@ import org.springframework.jdbc.core.RowMapper;
  */
 public class UserRowMapper implements RowMapper<User> {
 
-    @Override
-    public User mapRow(ResultSet rs, int i) throws SQLException {
+	@Override
+	public User mapRow(ResultSet rs, int i) throws SQLException {
 
-        User user = new User();
-        user.setUserId(rs.getInt("userId"));
-        user.setName(rs.getString("name"));
-        user.setEmail(rs.getString("email"));
-        user.setAddress(rs.getString("address"));
-        user.setLoginName(rs.getString("loginName"));
-        user.setRole(rs.getInt("role"));
-        user.setLoginStatus(rs.getInt("loginStatus"));
-        user.setPhone(rs.getString("phone"));
-        return user;
-    }
+		User user = new User();
+		user.setUserId(rs.getInt("userId"));
+		user.setName(rs.getString("name"));
+		user.setEmail(rs.getString("email"));
+		user.setAddress(rs.getString("address"));
+		user.setLoginName(rs.getString("loginName"));
+		user.setRole(rs.getInt("role"));
+		user.setLoginStatus(rs.getInt("loginStatus"));
+		user.setPhone(rs.getString("phone"));
+		return user;
+	}
 
 }

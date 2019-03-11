@@ -16,11 +16,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * @author Arman
  */
 public class UserDeletion {
-    public static void main(String[] args) {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
-        UserDAO userDAO=ctx.getBean(UserDAO.class);
-        //TODO: the user details will be taken from User-Reg-Form
-        userDAO.delete(1);
-        System.out.println("--------Data Deleted------");
-    }
+	public static void main(String[] args) {
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringRootConfig.class);
+		UserDAO userDAO = ctx.getBean(UserDAO.class);
+		// TODO: the user details will be taken from User-Reg-Form
+		userDAO.delete(1);
+		System.out.println("--------Data Deleted------");
+	}
 }
