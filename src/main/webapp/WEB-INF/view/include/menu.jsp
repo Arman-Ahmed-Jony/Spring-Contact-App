@@ -51,7 +51,8 @@
         <a class="nav-link" href="${url_contact_form}">Add Contact</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Contact List</a>
+        <s:url var="url_contact_list" value="/user/contact_list"/>
+        <a class="nav-link" href="${url_contact_list}">Contact List</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="${url_logout}">Logout</a>
