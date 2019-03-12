@@ -25,7 +25,7 @@ public class SpringRootConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/conapp_db");
 		ds.setUsername("root");
-		ds.setPassword("root");
+		ds.setPassword("");
 		ds.setMaxTotal(2);
 		ds.setInitialSize(1);
 		ds.setTestOnBorrow(true);

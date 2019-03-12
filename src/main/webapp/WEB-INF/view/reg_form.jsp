@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" type="image/gif" href="/static/images/logo.png">
         <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
               rel="stylesheet">
         <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>

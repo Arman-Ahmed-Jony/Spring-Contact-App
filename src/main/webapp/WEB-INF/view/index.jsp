@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" type="image/gif" href="/static/images/logo.png">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
               rel="stylesheet">

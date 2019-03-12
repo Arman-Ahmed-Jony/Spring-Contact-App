@@ -23,10 +23,9 @@ body{
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
-/*    position: fixed;*/
+    /*    position: fixed;*/
     width: 100%;
     top: 0;
-    
     margin-bottom: 0;
     border-radius: 0;
 }
@@ -45,11 +44,7 @@ body{
 }
 
 /* Set black background color, white text and some padding */
-footer {
-    background-color: #555;
-    color: white;
-    padding: 15px;
-}
+
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
@@ -63,7 +58,7 @@ footer {
 .login-form {
     width: 340px;
     margin: 100px auto;
-    
+
 }
 .login-form form {
     margin-bottom: 15px;
@@ -95,4 +90,7 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
+    background-color: #555;
+    color: white;
+    padding: 10px;
 }
