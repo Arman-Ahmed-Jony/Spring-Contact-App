@@ -21,12 +21,12 @@ public class SpringRootConfig {
 	// beans
 	@Bean
 	public BasicDataSource getDataSource() {
-		BasicDataSource ds = new BasicDataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/conapp_db");
-		ds.setUsername("root");
-		ds.setPassword("");
-		ds.setMaxTotal(2);
+		BasicDataSource ds = new BasicDataSource();         
+		ds.setDriverClassName("com.mysql.jdbc.Driver");     //JDBC driver class name
+		ds.setUrl("jdbc:mysql://localhost:3306/conapp_db"); //connection URL
+		ds.setUsername("root"); //database username
+		ds.setPassword(""); //database password
+		ds.setMaxTotal(-1); //no limit idle connection
 		ds.setInitialSize(1);
 		ds.setTestOnBorrow(true);
 		ds.setValidationQuery("SELECT 1");

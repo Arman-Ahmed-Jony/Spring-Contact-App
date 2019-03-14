@@ -22,7 +22,8 @@ public interface ContactService {
 	public void delete(Integer contactId);
 
 	public void delete(Integer[] contactId);
-
+        
+        public Contact findById(Integer contactId);
 	/**
 	 * this method returns all User Contact (user who is logged in)
 	 *

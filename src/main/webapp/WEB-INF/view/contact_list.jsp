@@ -34,6 +34,9 @@
             <c:if test="${param.action eq 'save'}">
                 <p class="success">The contact saved successfully</p>
             </c:if>
+            <c:if test="${param.action eq 'delete'}">
+                <p class="success">The contact delete successfully</p>
+            </c:if>
             <div>
                 <table class="table table-bordered" >
                     <thead>
@@ -51,6 +54,7 @@
                         <c:if test="${empty contactList}">
                             <tr><td colspan="7" class="error">No contact found!!</td></tr>
                         </c:if>
+
                         <c:forEach var="contact" items="${contactList}" varStatus="vs">
                             <tr>
                                 <td>${vs.count}</td>
@@ -60,8 +64,14 @@
                                 <td>${contact.address}</td>
                                 <td>${contact.remark}</td>
                                 <td>
-                                    <button type="button" class="btn btn-info">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <s:url var="url_edit_contact" value="/user/edit_contact">
+                                        <s:param name="contactId" value="${contact.contactId}" />
+                                    </s:url>
+                                    <a href="${url_edit_contact}" type="button" class="btn btn-info" role="button">Edit</a>
+                                    <s:url var="url_delete_contact" value="/user/delete_contact" >
+                                        <s:param name="contactId" value="${contact.contactId}"/>
+                                    </s:url>
+                                    <a href="${url_delete_contact}" type="button" class="btn btn-danger" role="button">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>
