@@ -28,7 +28,7 @@
 
             <div class="login-form">
                 <s:url var="url_contact_save" value="/user/save_contact"/>
-                <f:form action="${url_contact_save}" modelAttribute="command">
+                <f:form action="${url_contact_save}" modelAttribute="command" class="was-validated">
                     <h2 class="text-center">Contact Form</h2>   
 
                     <c:if test="${err!=null}">

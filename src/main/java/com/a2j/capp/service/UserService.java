@@ -38,6 +38,7 @@ public interface UserService {
 	/**
 	 * call this method to get list of registered users
 	 *
+     * @return 
 	 */
 	public List<User> getUserList();
 

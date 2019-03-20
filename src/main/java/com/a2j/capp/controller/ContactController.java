@@ -32,17 +32,22 @@ public class ContactController {
     @RequestMapping(value = "/user/contact_form")
     public String contactForm(Model m, HttpSession session) {
         m.addAttribute("command", new ContactCommand());
-        logger.info("test logging");
+        logger.info("contact form invecked");
         return "contact_form";
     }
 
     @RequestMapping(value = "/user/edit_contact")
     public String prepareContactForm(@RequestParam("contactId") Integer contactId, Model m, HttpSession session) {
+        logger.info("prepareContactForm method invecked");
         session.setAttribute("attribute_contact", contactId);
+        logger.info("contact id "+contactId.toString());
         Contact contact = service.findById(contactId);
+        logger.info("contact object "+contact.toString());
         ContactCommand contactCommand = new ContactCommand();
         contactCommand.setContact(contact);
+        logger.info("contactCommand object "+contactCommand.toString());
         m.addAttribute("command", contactCommand);
+        logger.info("invoking form");
         return "contact_form";
 
     }
@@ -89,12 +94,24 @@ public class ContactController {
         return "contact_list";
 
     }
+    @RequestMapping(value = "/user/contact_search")
+    public String contactSearch(Model m, HttpSession session, @RequestParam("free_text") String freeText){
+        m.addAttribute("contactList", service.findUserContact((Integer)session.getAttribute("userId"), freeText));
+        return "contact_list";
+    }
 
     @RequestMapping(value = "/user/delete_contact")
-    public String contactDelete(@RequestParam("contactId") Integer contactId, HttpSession session) {
+    public String contactDelete(@RequestParam("contactId") Integer contactId) {
         service.delete(contactId);
         return "redirect:contact_list?action=delete";
 
     }
+    @RequestMapping(value = "/user/bulk_delete_contact")
+    public String bulkContactDelete(@RequestParam("contactId") Integer[] contactIds) {
+        service.delete(contactIds);
+        return "redirect:contact_list?action=delete";
+
+    }
+    
 
 }

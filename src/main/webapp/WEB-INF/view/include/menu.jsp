@@ -30,7 +30,8 @@
         <a class="nav-link" href="${url_home}">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">User List</a>
+        <s:url var="url_user_list" value="/admin/users"/>
+        <a class="nav-link" href=${url_user_list}>User List</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="${url_logout}">Logout</a>

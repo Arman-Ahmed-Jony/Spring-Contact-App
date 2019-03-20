@@ -59,7 +59,7 @@ public class ContactServiceImpl extends BaseDAO implements ContactService {
 	public List<Contact> findUserContact(Integer userId, String text) {
 		String sql = "SELECT contactId, userId, name, phone, email, address, remark FROM contact WHERE userId=? "
 				+ "AND (name LIKE '%" + text + "%' OR phone LIKE '%" + text + "%' OR email LIKE '%" + text
-				+ "%' OR address LIKE '%" + text + "%' OR remark LIKE '%" + text + "%' ";
+				+ "%' OR address LIKE '%" + text + "%' OR remark LIKE '%" + text + "%' )";
 		return getJdbcTemplate().query(sql, new ContactRowMapper(), userId);
 	}
 
