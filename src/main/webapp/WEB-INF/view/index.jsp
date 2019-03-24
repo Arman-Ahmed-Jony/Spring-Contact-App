@@ -25,13 +25,30 @@
         <title>Login</title>
     </head>
     <body>
+        <script>
+            $(document).ready(function () {
+                //alert('i am ready');
+                $("#get_time").click(function () {
+//                    alert("button is clicked")
+
+                    $.ajax({
+                        url: "time_server",
+                        success: function (data) {
+//                            alert.(data)
+                                $("#time").html(data);
+                        }
+                    });
+                });
+            });
+        </script>
 
         <!--Header and Menu-->
         <jsp:include page="include/header.jsp"/>
         <!--Header and Menu-->
 
         <div class="container-fluid text-center">    
-
+            <button id="get_time">click me</button>
+            <p id="time"></p>
             <div class="login-form">
                 <s:url var="url_login" value="/login"/>
                 <f:form action="${url_login}" modelAttribute="command"> <!--By default the method is POST request-->
@@ -44,7 +61,7 @@
                     <c:if test="${param.action eq 'logout'}">
                         <p class="success">Logout Successful</p>
                     </c:if>
-                        
+
                     <c:if test="${param.action eq 'reg'}">
                         <p class="success">Registration Successful</p>
                     </c:if>

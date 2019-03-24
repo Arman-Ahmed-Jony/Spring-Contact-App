@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -29,5 +31,16 @@ public class AdminController {
         logger.info("userList method invocked");
         m.addAttribute("user_list", service.getUserList());
         return "user_list";
+    }
+
+    @RequestMapping(value = "/admin/changeLoginStatus")
+    @ResponseBody
+    public String changeLoginStatus(@RequestParam Integer userId,@RequestParam Integer loginStatus) {
+        try {
+            service.changeLoginStatus(userId, loginStatus);
+            return "SUCCESS: Status Changed";
+        } catch (Exception e) {
+            return "ERROR: Unable to Change Status";
+        }
     }
 }

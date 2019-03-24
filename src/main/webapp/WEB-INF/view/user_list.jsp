@@ -17,7 +17,7 @@
         <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
               rel="stylesheet">
         <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="/webjars/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
         <link href="${url_css}" rel="stylesheet" type="text/css">
         <title>User List</title>
     </head>
@@ -50,7 +50,17 @@
                             <td>${user.email}</td>
                             <td>${user.address}</td>
                             <td>${user.loginName}</td>
-                            <td>${user.loginStatus}</td>
+                            <td><!--${user.loginStatus}-->
+
+                                <select id="id_${user.userId}" onchange="changeStatus(${user.userId},$(this).val())">
+                                    <option value="1">active</option>
+                                    <option value="2">block</option>
+                                </select>
+                                <script>
+                                    $('#id_${user.userId}').val(${user.loginStatus});
+                                </script>
+                                <!--${user.loginStatus}-->
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -66,5 +76,17 @@
                 });
             });
         });
+        function changeStatus(userId,loginStatus){
+            //alert(userId+", "+loginStatus);
+            $.ajax({
+                url: 'changeLoginStatus',
+                data: {userId:userId, loginStatus:loginStatus},
+                success: function (data) {
+                    alert(data);
+                        
+                    }
+            });
+        }
+
     </script>
 </html>

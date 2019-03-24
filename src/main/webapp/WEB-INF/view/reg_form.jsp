@@ -14,7 +14,7 @@
         <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
               rel="stylesheet">
         <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="/webjars/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
         <link href="${url_css}" rel="stylesheet" type="text/css">
         <title>Registration</title>
     </head>
