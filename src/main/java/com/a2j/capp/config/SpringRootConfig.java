@@ -23,9 +23,11 @@ public class SpringRootConfig {
 	public BasicDataSource getDataSource() {
 		BasicDataSource ds = new BasicDataSource();         
 		ds.setDriverClassName("com.mysql.jdbc.Driver");     //JDBC driver class name
-		ds.setUrl("jdbc:mysql://localhost:3306/conapp_db"); //connection URL
-		ds.setUsername("root"); //database username
-		ds.setPassword(""); //database password
+                ds.setUrl("jdbc:mysql://sql12.freemysqlhosting.net/sql12285008"); //connection URL
+		//ds.setUrl("jdbc:mysql://localhost:3306/conapp_db"); //connection URL
+                ////demo.phpmyadmin.net/springTest
+		ds.setUsername("sql12285008"); //database username
+		ds.setPassword("4GFNHTfqW7"); //database password
 		ds.setMaxTotal(-1); //no limit idle connection
 		ds.setInitialSize(1);
 		ds.setTestOnBorrow(true);

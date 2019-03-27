@@ -49,4 +49,10 @@ public interface UserService {
 	 * @param loginStatus
 	 */
 	public void changeLoginStatus(Integer userId, Integer loginStatus);
+        /**
+         * check userName Availibility
+         * @param loginName
+         * @return 
+         */
+        public Boolean isLoginNameExist(String loginName);
 }

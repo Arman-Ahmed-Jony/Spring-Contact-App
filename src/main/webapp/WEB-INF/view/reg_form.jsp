@@ -52,7 +52,22 @@
                     </div>
 
                     <div class="form-group">
-                        <f:input type="text" path="user.loginName" class="form-control" placeholder="Username" required="required"/>
+                        <f:input type="text" id="id_loginname" path="user.loginName" class="form-control" placeholder="Username" required="required"/>
+                        <!--                        <button type="button" id="id_check_avail" onclick="">Check Availability</button>-->
+                        <p class="error" id="avail_status"></p>
+                        <script>
+                            $(document).ready(function () {
+                                $("#id_loginname").on("keyup", function () {
+                                    $.ajax({
+                                        url: "check_avail",
+                                        data: {loginName: $("#id_loginname").val()},
+                                        success: function (data) {
+                                            $("#avail_status").html(data)
+                                        }
+                                    })
+                                });
+                            });
+                        </script>
                     </div>
 
                     <div class="form-group">
@@ -71,4 +86,5 @@
         <jsp:include page="include/footer.jsp"/>
         <!-- Footer -->
     </body>
+
 </html>

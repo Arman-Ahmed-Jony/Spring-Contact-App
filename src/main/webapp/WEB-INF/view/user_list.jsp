@@ -52,7 +52,7 @@
                             <td>${user.loginName}</td>
                             <td><!--${user.loginStatus}-->
 
-                                <select id="id_${user.userId}" onchange="changeStatus(${user.userId},$(this).val())">
+                                <select id="id_${user.userId}" onchange="changeStatus(${user.userId}, $(this).val())">
                                     <option value="1">active</option>
                                     <option value="2">block</option>
                                 </select>
@@ -76,15 +76,15 @@
                 });
             });
         });
-        function changeStatus(userId,loginStatus){
+        function changeStatus(userId, loginStatus) {
             //alert(userId+", "+loginStatus);
             $.ajax({
                 url: 'changeLoginStatus',
-                data: {userId:userId, loginStatus:loginStatus},
+                data: {userId: userId, loginStatus: loginStatus},
                 success: function (data) {
                     alert(data);
-                        
-                    }
+
+                }
             });
         }
 
